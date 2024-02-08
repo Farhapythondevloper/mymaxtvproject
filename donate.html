@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .tab-bar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .tab {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .tab:hover {
+            background-color: #555;
+        }
+
+        .content {
+            padding: 20px;
+        }
+    </style>
+    <title>Tab Bar Example</title>
+</head>
+<body>
+    <div class="tab-bar">
+        <a href="#" class="tab" onclick="openTab('tab1')">Tab 1</a>
+        <a href="#" class="tab" onclick="openTab('tab2')">Tab 2</a>
+        <a href="#" class="tab" onclick="openTab('tab3')">Tab 3</a>
+    </div>
+
+    <div class="content" id="tab1">
+        <h2>Tab 1 Content</h2>
+        <p>This is the content of Tab 1.</p>
+    </div>
+
+    <div class="content" id="tab2" style="display: none;">
+        <h2>Tab 2 Content</h2>
+        <p>This is the content of Tab 2.</p>
+    </div>
+
+    <div class="content" id="tab3" style="display: none;">
+        <h2>Tab 3 Content</h2>
+        <p>This is the content of Tab 3.</p>
+    </div>
+
+    <script>
+        function openTab(tabId) {
+            // Hide all content divs
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(function(content) {
+                content.style.display = 'none';
+            });
+
+            // Show the selected tab content
+            var selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
